@@ -23,8 +23,8 @@ To get a local copy up and running, follow these steps.
 ## Installation & Setup
 1. Clone the repository
    ```bash
-   git clone https://github.com/your-username/your-repository-name.git
-   cd your-repository-name
+   git clone https://github.com/PinKevin/APAH-API.git
+   cd APAH-API
    ```
 2. Install dependencies
    ```bash
