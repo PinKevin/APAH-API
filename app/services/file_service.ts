@@ -10,8 +10,8 @@ export default class FileService {
   }
 
   async getFromDisk(key: string) {
-    const metadata = await drive.use('gcs').getMetaData(key)
-    const stream = await drive.use('gcs').getStream(key)
+    const metadata = await drive.use('fs').getMetaData(key)
+    const stream = await drive.use('fs').getStream(key)
     return { metadata, stream }
   }
 }
