@@ -1,10 +1,10 @@
-import { cuid } from '@adonisjs/core/helpers'
 import { MultipartFile } from '@adonisjs/core/types/bodyparser'
 import drive from '@adonisjs/drive/services/main'
+import { randomUUID } from 'node:crypto'
 
 export default class FileService {
   async saveFileToDisk(file: MultipartFile) {
-    const fileName = `${cuid()}.${file.extname}`
+    const fileName = `${randomUUID()}.${file.extname}`
     await file.moveToDisk(fileName)
     return fileName
   }

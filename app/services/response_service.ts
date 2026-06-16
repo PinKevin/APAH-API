@@ -1,8 +1,8 @@
-import { Response } from '@adonisjs/core/http'
+import { HttpResponse } from '@adonisjs/core/http'
 
 export default class ResponseService {
   successResponse(
-    response: Response,
+    response: HttpResponse,
     message: string,
     payload?: Record<string, any>,
     statusCode: number = 200
@@ -14,7 +14,7 @@ export default class ResponseService {
     })
   }
 
-  failResponse(response: Response, message: string, statusCode: number = 400) {
+  failResponse(response: HttpResponse, message: string, statusCode: number = 400) {
     return response.status(statusCode).json({
       status: 'fail',
       message,
@@ -22,7 +22,7 @@ export default class ResponseService {
   }
 
   errorResponse(
-    response: Response,
+    response: HttpResponse,
     message: string = 'Terjadi kesalahan dalam sistem',
     statusCode: number = 500
   ) {

@@ -32,18 +32,20 @@
     "#config/*": "./config/*.js",
     "#enum/*": "./app/enum/*.js",
     "#interface/*": "./app/interface/*.js",
-    "#dto/*": "./app/dto/*.js"
+    "#dto/*": "./app/dto/*.js",
+    "#generated/*": "./.adonisjs/server/*.js",
+    "#transformers/*": "./app/transformers/*.js"
   },
   "devDependencies": {
-    "@adonisjs/assembler": "^7.8.2",
-    "@adonisjs/eslint-config": "2.0.0-beta.7",
-    "@adonisjs/prettier-config": "^1.4.0",
-    "@adonisjs/tsconfig": "^1.4.0",
+    "@adonisjs/assembler": "^8.4.0",
+    "@adonisjs/eslint-config": "3.1.0",
+    "@adonisjs/prettier-config": "^1.5.0",
+    "@adonisjs/tsconfig": "^2.0.0",
     "@japa/api-client": "^2.0.3",
     "@japa/assert": "^3.0.0",
-    "@japa/plugin-adonisjs": "^3.0.1",
+    "@japa/plugin-adonisjs": "^5.2.0",
     "@japa/runner": "^3.1.4",
-    "@swc/core": "^1.9.2",
+    "@poppinss/ts-exec": "^1.4.4",
     "@types/luxon": "^3.4.2",
     "@types/node": "^22.9.0",
     "@types/pluralize": "^0.0.33",
@@ -52,17 +54,17 @@
     "pino-pretty": "^11.3.0",
     "pluralize": "^8.0.0",
     "prettier": "^3.3.3",
-    "ts-node-maintained": "^10.9.4",
-    "typescript": "~5.5.4"
+    "typescript": "~5.5.4",
+    "youch": "^4.1.1"
   },
   "dependencies": {
-    "@adonisjs/auth": "^9.2.4",
-    "@adonisjs/core": "^6.14.1",
-    "@adonisjs/cors": "^2.2.1",
-    "@adonisjs/drive": "^3.2.0",
-    "@adonisjs/lucid": "^21.4.0",
+    "@adonisjs/auth": "^10.1.0",
+    "@adonisjs/core": "^7.3.4",
+    "@adonisjs/cors": "^3.0.0",
+    "@adonisjs/drive": "^4.0.0",
+    "@adonisjs/lucid": "^22.4.2",
     "@google-cloud/storage": "^7.14.0",
-    "@vinejs/vine": "^2.1.0",
+    "@vinejs/vine": "^4.4.0",
     "better-sqlite3": "^11.5.0",
     "docx": "^9.0.3",
     "luxon": "^3.5.0",
@@ -80,11 +82,6 @@
   },
   "resolutions": {
     "strtok3": "8.0.1"
-  },
-  "pnpm": {
-    "overrides": {
-      "strtok3": "8.0.1"
-    }
   },
   "prettier": "@adonisjs/prettier-config",
   "volta": {
