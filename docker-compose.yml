@@ -1,21 +1,19 @@
-version: '3.9'
-
 services:
   backend:
-    image: ${DOCKER_IMAGE}
-    container_name: backend
+    container_name: apah_backend
     build:
       context: .
-      target: build
+      target: production
+      args:
+        ENV_FILE: .env.production.local
     ports:
       - ${PORT}:${PORT}
       - 3333:3333
       - 9229:9229
     env_file:
-      - .env
+      - .env.production.local
     volumes:
-      - node_modules:/home/node/app/node_modules
-      - storage:/home/node/app/storage
+      - apah_storage:/home/node/app/storage
     command: >
       sh -c '
         # Check if .env exists
@@ -37,8 +35,8 @@ services:
       - postgresql
 
   postgresql:
-    image: postgres:17
-    container_name: postgresql
+    image: postgres:alpine
+    container_name: apah_postgresql
     restart: always
     environment:
       POSTGRES_USER: ${DB_USER}
@@ -49,9 +47,8 @@ services:
     expose:
       - ${DB_PORT}
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - apah_db:/var/lib/postgresql
 
 volumes:
-  node_modules:
-  db_data:
-  storage:
+  apah_db:
+  apah_storage:

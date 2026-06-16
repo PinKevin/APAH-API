@@ -38,7 +38,7 @@ export default class TeacherService {
           id: teacher.id,
         },
       }
-    } catch (error) {
+    } catch (error: any) {
       await trx.rollback()
       throw error
     }
@@ -79,7 +79,7 @@ export default class TeacherService {
       await user.save()
 
       return teacher.serialize()
-    } catch (error) {
+    } catch (error: any) {
       throw error
     }
   }

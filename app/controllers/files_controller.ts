@@ -21,7 +21,7 @@ export default class FilesController {
         { filePath },
         201
       )
-    } catch (error) {
+    } catch (error: any) {
       return this.responseService.errorResponse(response, `Unggah foto gagal`)
     }
   }
@@ -37,7 +37,7 @@ export default class FilesController {
 
       response.header('Content-Type', metadata.contentType!)
       return response.stream(stream)
-    } catch (error) {
+    } catch (error: any) {
       console.log(error)
       return this.responseService.errorResponse(response, `Ambil foto gagal. ${error}`)
     }

@@ -22,7 +22,7 @@ export default class AuthController {
       })
 
       return this.responseService.successResponse(response, 'Anda berhasil login', token)
-    } catch (error) {
+    } catch (error: any) {
       if (error.cause === 'pending_account') {
         return this.responseService.failResponse(response, error.message, 400)
       }
@@ -40,7 +40,7 @@ export default class AuthController {
       await this.authService.revokeToken(auth)
 
       return this.responseService.successResponse(response, 'Anda berhasil keluar')
-    } catch (error) {
+    } catch (error: any) {
       return this.responseService.failResponse(response, error.message)
     }
   }
@@ -49,7 +49,7 @@ export default class AuthController {
     try {
       await this.authService.checkToken(auth)
       return this.responseService.successResponse(response, 'Token login user valid')
-    } catch (error) {
+    } catch (error: any) {
       return this.responseService.failResponse(response, 'Token kadaluarsa')
     }
   }
@@ -58,7 +58,7 @@ export default class AuthController {
     try {
       const data = await this.authService.getUserProfile(auth)
       return this.responseService.successResponse(response, 'Profil berhasil diambil', data)
-    } catch (error) {
+    } catch (error: any) {
       return this.responseService.failResponse(response, error.message)
     }
   }

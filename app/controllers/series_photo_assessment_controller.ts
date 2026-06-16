@@ -34,7 +34,7 @@ export default class SeriesPhotoAssessmentsController {
         'Penilaian foto berseri berhasil diambil',
         data
       )
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof errors.E_ROW_NOT_FOUND) {
         return this.responseService.failResponse(response, error.message, 404)
       }
@@ -64,7 +64,7 @@ export default class SeriesPhotoAssessmentsController {
         assessment,
         201
       )
-    } catch (error) {
+    } catch (error: any) {
       return this.responseService.failResponse(response, error.message)
     }
   }
@@ -83,7 +83,7 @@ export default class SeriesPhotoAssessmentsController {
         'Foto berseri berhasil diambil',
         seriesPhoto
       )
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof errors.E_ROW_NOT_FOUND) {
         return this.responseService.failResponse(response, error.message, 404)
       }
@@ -108,7 +108,7 @@ export default class SeriesPhotoAssessmentsController {
         'Foto berseri berhasil diubah',
         seriesPhoto
       )
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof errors.E_ROW_NOT_FOUND) {
         return this.responseService.failResponse(response, error.message, 404)
       }
@@ -124,7 +124,7 @@ export default class SeriesPhotoAssessmentsController {
     try {
       await this.seriesPhotoService.deleteAssessment(studentId, seriesPhotoId)
       return this.responseService.successResponse(response, 'Foto berseri berhasil dihapus')
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof errors.E_ROW_NOT_FOUND) {
         return this.responseService.failResponse(response, error.message, 404)
       }

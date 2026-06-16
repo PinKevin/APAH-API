@@ -58,7 +58,7 @@ export default class AnecdotalAssessmentService {
       await trx.commit()
 
       return assessments
-    } catch (error) {
+    } catch (error: any) {
       await trx.rollback()
       throw error
     }
@@ -118,7 +118,7 @@ export default class AnecdotalAssessmentService {
 
       await anecdotal.load('learningGoals')
       return anecdotal
-    } catch (error) {
+    } catch (error: any) {
       await trx.rollback()
       throw error
     }

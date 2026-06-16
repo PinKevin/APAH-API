@@ -56,7 +56,7 @@ export default class LearningGoalsController {
         'Tujuan pembelajaran berhasil diambil',
         data
       )
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof errors.E_ROW_NOT_FOUND) {
         return this.responseService.failResponse(response, 'Tidak ditemukan', 404)
       }
@@ -74,7 +74,7 @@ export default class LearningGoalsController {
         'Tujuan pembelajaran berhasil diambil',
         data
       )
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof errors.E_ROW_NOT_FOUND) {
         return this.responseService.failResponse(response, 'Tidak ditemukan', 404)
       }
@@ -92,7 +92,7 @@ export default class LearningGoalsController {
         'Tujuan pembelajaran berhasil diambil',
         data
       )
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof errors.E_ROW_NOT_FOUND) {
         return this.responseService.failResponse(response, 'Tidak ditemukan', 404)
       }
@@ -113,7 +113,7 @@ export default class LearningGoalsController {
         'Tujuan pembelajaran berhasil diambil',
         data
       )
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof errors.E_ROW_NOT_FOUND) {
         return this.responseService.failResponse(response, 'Tidak ditemukan', 404)
       }

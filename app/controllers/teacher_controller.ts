@@ -31,7 +31,7 @@ export default class TeacherController {
         teacherInfo,
         201
       )
-    } catch (error) {
+    } catch (error: any) {
       return this.responseService.failResponse(response, error.message, 400)
     }
   }
@@ -49,7 +49,7 @@ export default class TeacherController {
       const teacher = await this.teacherService.completeTeacherInfo(teacherData)
 
       return this.responseService.successResponse(response, 'Anda berhasil mendaftar', teacher, 201)
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof errors.E_ROW_NOT_FOUND) {
         return this.responseService.failResponse(response, 'Tidak ada guru yang ditemukan', 404)
       }

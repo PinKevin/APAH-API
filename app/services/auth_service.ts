@@ -16,7 +16,7 @@ export default class AuthService {
       const token = await User.accessTokens.create(user)
 
       return token
-    } catch (error) {
+    } catch (error: any) {
       throw error
     }
   }
@@ -30,7 +30,7 @@ export default class AuthService {
     try {
       const isLoggedIn = await auth.use('api').check()
       return isLoggedIn
-    } catch (error) {
+    } catch (error: any) {
       throw error
     }
   }

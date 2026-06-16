@@ -64,7 +64,7 @@ export default class SeriesPhotoAssessmentService {
       await trx.commit()
 
       return seriesPhoto
-    } catch (error) {
+    } catch (error: any) {
       await trx.rollback()
       throw error
     }
@@ -138,7 +138,7 @@ export default class SeriesPhotoAssessmentService {
       await seriesPhoto.load('learningGoals')
       await seriesPhoto.load('seriesPhotos')
       return seriesPhoto
-    } catch (error) {
+    } catch (error: any) {
       await trx.rollback()
       throw error
     }
@@ -166,7 +166,7 @@ export default class SeriesPhotoAssessmentService {
 
       await seriesPhoto.useTransaction(trx).delete()
       await trx.commit()
-    } catch (error) {
+    } catch (error: any) {
       await trx.rollback()
       throw error
     }

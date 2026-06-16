@@ -34,7 +34,7 @@ export default class StudentController {
         sortOrder
       )
       return this.responseService.successResponse(response, 'Data murid berhasil diambil', students)
-    } catch (error) {
+    } catch (error: any) {
       return this.responseService.errorResponse(response)
     }
   }
@@ -57,7 +57,7 @@ export default class StudentController {
         assessment,
         201
       )
-    } catch (error) {
+    } catch (error: any) {
       return this.responseService.failResponse(response, error.message)
     }
   }
@@ -68,7 +68,7 @@ export default class StudentController {
     try {
       const data = await this.studentService.getStudentInfo(id)
       return this.responseService.successResponse(response, 'Info siswa berhasil diambil', data)
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof errors.E_ROW_NOT_FOUND) {
         return this.responseService.failResponse(response, error.message, 404)
       }
@@ -101,7 +101,7 @@ export default class StudentController {
         assessment,
         200
       )
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof errors.E_ROW_NOT_FOUND) {
         return this.responseService.failResponse(response, error.message, 404)
       }
@@ -117,7 +117,7 @@ export default class StudentController {
     try {
       await this.studentService.deleteStudent(id, user)
       return this.responseService.successResponse(response, 'Murid berhasil dihapus')
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof errors.E_ROW_NOT_FOUND) {
         return this.responseService.failResponse(response, error.message, 404)
       }

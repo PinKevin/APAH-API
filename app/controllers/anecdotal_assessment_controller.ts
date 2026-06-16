@@ -34,7 +34,7 @@ export default class AnecdotalAssessmentsController {
         'Penilaian anekdot berhasil diambil',
         data
       )
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof errors.E_ROW_NOT_FOUND) {
         return this.responseService.failResponse(response, error.message, 404)
       }
@@ -64,7 +64,7 @@ export default class AnecdotalAssessmentsController {
         assessment,
         201
       )
-    } catch (error) {
+    } catch (error: any) {
       return this.responseService.failResponse(response, error.message)
     }
   }
@@ -76,7 +76,7 @@ export default class AnecdotalAssessmentsController {
     try {
       const anecdotal = await this.anecdotalService.getDetailAssessment(studentId, anecdotalId)
       return this.responseService.successResponse(response, 'Anekdot berhasil diambil', anecdotal)
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof errors.E_ROW_NOT_FOUND) {
         return this.responseService.failResponse(response, error.message, 404)
       }
@@ -97,7 +97,7 @@ export default class AnecdotalAssessmentsController {
         payload
       )
       return this.responseService.successResponse(response, 'Anekdot berhasil diubah', anecdotal)
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof errors.E_ROW_NOT_FOUND) {
         return this.responseService.failResponse(response, error.message, 404)
       }
@@ -113,7 +113,7 @@ export default class AnecdotalAssessmentsController {
     try {
       await this.anecdotalService.deleteAssessment(studentId, anecdotalId)
       return this.responseService.successResponse(response, 'Anekdot berhasil dihapus')
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof errors.E_ROW_NOT_FOUND) {
         return this.responseService.failResponse(response, error.message, 404)
       }

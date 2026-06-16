@@ -58,7 +58,7 @@ export default class ChecklistAssessmentService {
 
       await trx.commit()
       return checklist
-    } catch (error) {
+    } catch (error: any) {
       await trx.rollback()
       throw error
     }
@@ -114,7 +114,7 @@ export default class ChecklistAssessmentService {
         query.preload('learningGoal')
       })
       return checklist
-    } catch (error) {
+    } catch (error: any) {
       await trx.rollback()
       throw error
     }

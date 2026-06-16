@@ -56,7 +56,7 @@ export default class ArtworkAssessmentService {
       await trx.commit()
 
       return artwork
-    } catch (error) {
+    } catch (error: any) {
       await trx.rollback()
       throw error
     }
@@ -116,7 +116,7 @@ export default class ArtworkAssessmentService {
 
       await artwork.load('learningGoals')
       return artwork
-    } catch (error) {
+    } catch (error: any) {
       await trx.rollback()
       throw error
     }

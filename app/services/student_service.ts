@@ -46,7 +46,7 @@ export default class StudentService {
       const students = await studentQuery.paginate(page, perPage)
 
       return students
-    } catch (error) {
+    } catch (error: any) {
       console.log(error)
       throw error
     }
@@ -107,7 +107,7 @@ export default class StudentService {
 
       await trx.commit()
       return student
-    } catch (error) {
+    } catch (error: any) {
       await trx.rollback()
       throw error
     }
@@ -211,7 +211,7 @@ export default class StudentService {
 
       await trx.commit()
       return updatedStudent
-    } catch (error) {
+    } catch (error: any) {
       await trx.rollback()
       throw error
     }
@@ -242,7 +242,7 @@ export default class StudentService {
       await student.useTransaction(trx).delete()
 
       await trx.commit()
-    } catch (error) {
+    } catch (error: any) {
       await trx.rollback()
       throw error
     }

@@ -63,7 +63,7 @@ export default class ReportPrintHistoriesController {
       )
       response.header('Content-Disposition', `attachment; filename=${fileName}`)
       return response.send(buffer)
-    } catch (error) {
+    } catch (error: any) {
       console.log(error)
       if (error.cause === 'already-exists') {
         return this.responseService.failResponse(response, error.message)
@@ -96,7 +96,7 @@ export default class ReportPrintHistoriesController {
       )
       response.header('Content-Disposition', `attachment; filename=${filePath.split('/').pop()}`)
       return response.stream(fileStream)
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof lucidError.E_ROW_NOT_FOUND) {
         return this.responseService.failResponse(response, 'Data tidak ditemukan', 404)
       } else if (error.cause === 'File not found') {
@@ -124,7 +124,7 @@ export default class ReportPrintHistoriesController {
         sortOrder,
       })
       return this.responseService.successResponse(response, 'Laporan berhasil diambil', data)
-    } catch (error) {
+    } catch (error: any) {
       return this.responseService.errorResponse(response, 'Gagal mengambil laporan')
     }
   }
@@ -136,7 +136,7 @@ export default class ReportPrintHistoriesController {
     try {
       const data = await this.reportInfoService.getStudentReportHistoryById(studentId, reportId)
       return this.responseService.successResponse(response, 'Laporan berhasil diambil', data)
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof lucidError.E_ROW_NOT_FOUND) {
         return this.responseService.failResponse(response, 'Data tidak ditemukan', 404)
       }
@@ -151,7 +151,7 @@ export default class ReportPrintHistoriesController {
     try {
       await this.reportInfoService.deleteReportHistory(studentId, reportId)
       return this.responseService.successResponse(response, 'Laporan berhasil dihapus')
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof lucidError.E_ROW_NOT_FOUND) {
         return this.responseService.failResponse(response, 'Data tidak ditemukan', 404)
       }

@@ -21,7 +21,7 @@ export default class extends BaseSeeder {
     //   // Upload the file content to the disk
     //   await disk.put(destinationPath, fileBuffer)
     //   console.log('File uploaded successfully')
-    // } catch (error) {
+    // } catch (error: any) {
     //   console.error('Error uploading file:', error)
     // }
   }
